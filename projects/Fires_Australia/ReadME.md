@@ -18,6 +18,7 @@ En esta practica se nos pide un estudio de Analisis de Datos sobre los ultimos i
     * Usar marcación de puntos mediante Cluster
     
 <h5>Columnas</h5>
+
 * Latitude: Center of 1km fire pixel but not necessarily the actual location of the fire as one or more fires can be detected within the 1km pixel.
 
 * Longitude: Center of 1km fire pixel but not necessarily the actual location of the fire as one or more fires can be detected within the 1km pixel.
