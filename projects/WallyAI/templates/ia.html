@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Wally AI</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+​<style>
+#div1 {
+  font-size:48px;
+}
+</style>
+
+
+<div class="jumbotron jumbotron-fluid bg-danger text-white">
+  <div class="container">
+    <h1 class="display-4">Wally AI</h1>
+    <p class="lead">Busca a Wally antes que lo haga la IA</p>
+    <div id="div1" class="fa"></div>
+  </div>
+</div>
+    <div class="container">
+
+      <div class="jumbotron" style="gray">
+         <img src="{{url_for('static', filename='wally_ia.jpg')}}" alt="WallyIA" width="100%">
+
+        <a href="{{url_for('ia')}}" class="btn btn-danger btn-lg btn-block" role="button">Wally AI</a>
+
+    </div>
+        </div>
+
+
+        <script>
+        function hourglass() {
+          var a;
+          a = document.getElementById("div1");
+          a.innerHTML = "&#xf251;";
+          setTimeout(function () {
+              a.innerHTML = "&#xf252;";
+            }, 1000);
+          setTimeout(function () {
+              a.innerHTML = "&#xf253;";
+            }, 2000);
+        }
+        hourglass();
+        setInterval(hourglass, 3000);
+        </script>
+
+
+  {% endblock %}

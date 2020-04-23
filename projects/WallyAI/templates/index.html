@@ -1,0 +1,43 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Wally AI</title>
+  {{ dropzone.load_css() }}
+  {{ dropzone.style('border: 4px dashed #D62A06; margin: 10%; min-height: 300px;') }}
+</head>
+<body>
+
+  <div class="jumbotron jumbotron-fluid bg-danger text-white">
+    <div class="container">
+      <h1 class="display-4">Wally AI</h1>
+      <p class="lead">Como podemos jugar contra la IA buscando a Wally</p>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('wally')}}">
+
+        <div class="jumbotron" style="gray">
+          <center>
+            <img src="{{url_for('static', filename='png/head.png')}}" class="mx-auto d-block" alt="Wally" width="50%">
+            </center>
+      {{ dropzone.create() }}
+        <img src="{{url_for('static', filename='png/saludando.png')}}" class="rounded float-left" alt="Wally" width="15%">
+        <input type="submit" id="submit" class="btn btn-danger btn-lg btn-block" value="Jugar">
+
+        </div>
+
+    </form>
+    {{ dropzone.load_js() }}
+    {{ dropzone.config(custom_options='addRemoveLinks: true, parallelUploads: 20,') }}
+
+    </div>
+
+  </body>
+  </html>
+
+  {% endblock %}
