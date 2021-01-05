@@ -1,6 +1,17 @@
-# Visualizar como una IA predice un nuevo texto del Quijote
+# Proyecto NLP Quijote
 
 **Objetivo**
-En base a un modelo propio de **Deep Learning** creado con los 50 primeros capitulos del Quijote, vamos a mostrar de manera visual como una Red Neuronal puede predecir una palabra siguiente a la otra basada en una cercania matemática.<br>
+Creación de un modelo de Deep Learning entrenado con los primeros **50 capitulos del Quijote**, para crear una contextualización artificial del contenido del libro y de esta manera poder predecir un nuevo texto en función a unas palabras dadas.
 
-El modelo es capaz de crear un nuevo texto de 50 palabras en función a una frase dada y contextualizada en el libro del Quijote.
+**Requisitos**
+* Python 3.8
+* Tensorflow 2.x
+
+**Pasos de creación**
+* Adquirir el libro del Quijote en formato digital. https://www.gutenberg.org/ebooks/search/?query=quijote&submit_search=Go%21
+* Tratamiento de los datos
+* Creación del modelo usando redes LSTM (Large Short Term Memory)
+* Entrenamiento
+* Resultados y validación
+* Prediccón
+* Salvar modelo
