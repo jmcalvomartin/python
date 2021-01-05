@@ -1,5 +1,7 @@
 # Proyecto NLP Quijote
 
+<img src="./images/Portadas.png">
+
 **Objetivo**
 Creación de un modelo de Deep Learning entrenado con los primeros **50 capitulos del Quijote**, para crear una contextualización artificial del contenido del libro y de esta manera poder predecir un nuevo texto en función a unas palabras dadas.
 
