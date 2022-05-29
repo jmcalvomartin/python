@@ -1,2 +1,2 @@
 # python
-Programación con Python, actividades y diferentes niveles
+Programación con Python, actividades y proyectos realizados en notebook
