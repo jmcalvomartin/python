@@ -9,7 +9,7 @@ TEXT_COLOR = (200, 200, 200)
 
 # Inicializar Pygame
 pygame.init()
-screen = pygame.display.set_mode((600, 400))
+screen = pygame.display.set_mode((600, 600))
 pygame.display.set_caption("Conway - HelloMath")
 
 # Fuente para texto
@@ -27,7 +27,11 @@ def get_board_dimensions():
         draw_text("Selecciona el tamaño del tablero:", (50, 50))
         draw_text("1. 9x9", (50, 100))
         draw_text("2. 16x5", (50, 150))
-
+        draw_text("Manejo de teclas", (50, 250))
+        draw_text("Ejecutar: Espacio", (50, 300))
+        draw_text("Estado siguiente: n", (50, 350))
+        draw_text("Estado anterior: b", (50, 400))
+        draw_text("Resetear: r", (50, 450))
 
         pygame.display.flip()
         for event in pygame.event.get():
@@ -80,6 +84,7 @@ def main():
                         if 0 <= x + i < nx and 0 <= y + j < ny:
                             neighbors += board[x + i, y + j]
 
+                #REGLAS DE CONWAY
                 if board[x, y] == 1 and (neighbors < 2 or neighbors > 3):
                     new_board[x, y] = 0
                 elif board[x, y] == 0 and neighbors == 3:
