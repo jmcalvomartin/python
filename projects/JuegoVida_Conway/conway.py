@@ -71,7 +71,7 @@ def main():
                     rect = pygame.Rect(x * cell_size, y * cell_size, cell_size - 1, cell_size - 1)
                     pygame.draw.rect(screen, CELL_COLOR, rect)
 
-    def update_board():
+    def conway():
         nonlocal board  # Use nonlocal to modify the board variable from the enclosing scope
         new_board = np.copy(board)
         for x in range(nx):
@@ -89,6 +89,21 @@ def main():
                     new_board[x, y] = 0
                 elif board[x, y] == 0 and neighbors == 3:
                     new_board[x, y] = 1
+        board = new_board
+
+    def barrido():
+        nonlocal board  # Use nonlocal to modify the board variable from the enclosing scope
+        new_board = np.copy(board)
+        for x in range(nx):
+            for y in range(ny):
+                # Mantener las celdas vivas
+                if board[x, y] == 1:
+                    new_board[x, y] = 1
+                # Nueva regla: si la celda encima está viva, esta celda se vuelve viva
+                elif y > 0 and board[x, y - 1] == 1:
+                    new_board[x, y] = 1
+                else:
+                    new_board[x, y] = 0
         board = new_board
 
     running = True
@@ -114,7 +129,7 @@ def main():
                     paused = True  # Pausar después del reset
                 elif event.key == pygame.K_n:  # Avanzar un estado manualmente
                     if paused:
-                        update_board()
+                        barrido() ### Change Rules
                         history.append(np.copy(board))
                         history_index += 1
                 elif event.key == pygame.K_b:  # Retroceder al estado anterior
@@ -128,7 +143,7 @@ def main():
                 board[x, y] = not board[x, y]  # Cambiar el estado de la celda
 
         if not paused:
-            update_board()
+            barrido() ### Change Rules
             history.append(np.copy(board))
             history_index += 1
 
