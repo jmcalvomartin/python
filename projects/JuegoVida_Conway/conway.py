@@ -121,6 +121,26 @@ def main():
                     new_board[x, y] = 0
         board = new_board
 
+    def centro():
+        nonlocal board  # Use nonlocal to modify the board variable from the enclosing scope
+        new_board = np.copy(board)
+        for x in range(nx):
+            for y in range(ny):
+                try: #Controlar error de frontera
+                    # Mantener las celdas vivas
+                    if board[x, y] == 1:
+                        new_board[x, y] = 1  # Cambiar a 0 para hacer la ola
+                    # Nueva regla: si la celda encima está viva, esta celda se vuelve viva
+
+                    elif (board[x, y - 1] == 1 or board[x-1, y] == 1 or board[x, y + 1] == 1 or board[x+1, y] == 1):
+                            new_board[x, y] = 1
+                    else:
+                        new_board[x, y] = 0
+                except:
+                    if board[x, y] == 1:
+                        new_board[x, y] = 1
+        board = new_board
+
     running = True
     paused = True  # Empezar en estado pausado para permitir la configuración inicial
     clock = pygame.time.Clock()
@@ -144,7 +164,7 @@ def main():
                     paused = True  # Pausar después del reset
                 elif event.key == pygame.K_n:  # Avanzar un estado manualmente
                     if paused:
-                        diagonal() ### Change Rules
+                        centro() ### Change Rules
                         history.append(np.copy(board))
                         history_index += 1
                 elif event.key == pygame.K_b:  # Retroceder al estado anterior
@@ -158,7 +178,7 @@ def main():
                 board[x, y] = not board[x, y]  # Cambiar el estado de la celda
 
         if not paused:
-            diagonal() ### Change Rules
+            centro() ### Change Rules
             history.append(np.copy(board))
             history_index += 1
 
