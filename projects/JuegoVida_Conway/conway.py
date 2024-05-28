@@ -9,7 +9,7 @@ TEXT_COLOR = (200, 200, 200)
 
 # Inicializar Pygame
 pygame.init()
-screen = pygame.display.set_mode((600, 600))
+screen = pygame.display.set_mode((800, 800))
 pygame.display.set_caption("Conway - HelloMath")
 
 # Fuente para texto
@@ -164,7 +164,7 @@ def main():
                     paused = True  # Pausar después del reset
                 elif event.key == pygame.K_n:  # Avanzar un estado manualmente
                     if paused:
-                        centro() ### Change Rules
+                        conway() ### Change Rules
                         history.append(np.copy(board))
                         history_index += 1
                 elif event.key == pygame.K_b:  # Retroceder al estado anterior
@@ -178,7 +178,7 @@ def main():
                 board[x, y] = not board[x, y]  # Cambiar el estado de la celda
 
         if not paused:
-            centro() ### Change Rules
+            conway() ### Change Rules
             history.append(np.copy(board))
             history_index += 1
 
